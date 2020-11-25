@@ -1,0 +1,15 @@
+## I：npm install -g supervisor
+## II：然后在VScode中用supervisor来代替 node即可
+
+
+--------------遇到的问题---------
+无法加载文件，因为在该系统中禁止运行脚本
+解决方案： ①：以管理员的身份打开powershell
+          ②：输入 set-ExecutionPolicy RemoteSigned
+          ③：输入Y 或者是A 
+          ④：重新打开VScode，就可以使用supervisor了
+
+--------------遇到的问题------------
+npm下载supervisor失败
+解决方案：  ①：下载cnpm（cnpm是淘宝镜像，下载速度快）
+           ②：然后再进行下载
