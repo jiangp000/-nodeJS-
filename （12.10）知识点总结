@@ -28,3 +28,34 @@ nodejs使用事件驱动模型，当web server接受到请求之后，就把他�
 
 
 代码部分
+
+
+```
+// 非阻塞式IO
+var fs=require("fs");
+
+fs.readFile("q.jtxt",function(err,data){
+    if(err) return console.error(err);
+    console.log(data.toString());
+});
+
+console.log("程序执行结束");
+
+
+// 事件的绑定与触发调用
+var events=require("events");
+var eventEmitter=new  events.EventEmitter();
+
+var connectHadnler= function connected(){
+    console.log("connect successfully");
+    eventEmitter.emit("data_received");
+}
+
+eventEmitter.on("connection",connectHadnler);
+
+eventEmitter.on("connection",function(){
+    console.log("yes successfully");
+})
+
+eventEmitter.emit("connection");
+console.log("all finished successfully");

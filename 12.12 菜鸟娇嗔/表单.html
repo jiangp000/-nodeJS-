@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("需要输入名字。");
+        return false;
+    }
+}
+
+function validPhone() {
+    var x = document.forms["myForm"]["phone"].value;
+    if (x == null || x == "") {
+        alert("请不要提交空白。");
+        return false;
+    }
+    // 用正则表达式来进行判断
+    var regex="/1[0-9]{10}/"
+    if(regex.test(x)){
+        alert("正确的电话号码");
+        return false;
+    }
+    else{
+        alert("请输入正确的电话号码");
+        return false;
+    }
+
+}
+</script>
+</head>
+<body>
+                                          
+<form name="myForm" action="demo_form.php" onsubmit="return validPhone()" method="post">
+名字: <input type="text" name="fname">
+电话: <input type="text" name="phone">
+
+<input type="submit" value="提交">
+
+</form>
+
+</body>
+</html>

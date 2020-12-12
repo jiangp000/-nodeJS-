@@ -18,3 +18,5 @@ fs.readFile("q.jtxt",function(err,data){
 });
 
 console.log("程序执行结束");
+
+console.log("jiang jiang is not a great friend");
